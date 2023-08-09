@@ -111,6 +111,15 @@ module.exports = {
         count: 20,
       },
     },
+    zkevmMockL1Network: {
+      url: process.env.JSONRPC_HTTP_URL || 'http://zkevm-mock-l1-network:8545',
+      accounts: {
+        mnemonic: process.env.MNEMONIC || DEFAULT_MNEMONIC,
+        path: "m/44'/60'/0'/0",
+        initialIndex: 0,
+        count: 20,
+      },
+    },    
     hardhat: {
       initialDate: '0',
       allowUnlimitedContractSize: true,
