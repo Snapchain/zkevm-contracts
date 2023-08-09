@@ -1,4 +1,6 @@
 #!/bin/bash
+set -eux
+
 echo "JSONRPC_HTTP_URL: $JSONRPC_HTTP_URL"
 node docker/scripts/fund-accounts.js
 echo "Replace 1001 with $L2_CHAIN_ID"
