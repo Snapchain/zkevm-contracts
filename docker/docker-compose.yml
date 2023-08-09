@@ -41,5 +41,3 @@ services:
     environment:
       - JSONRPC_HTTP_URL=http://zkevm-mock-l1-network:8545
       - L2_CHAIN_ID=2955
-    command:
-      - "./docker/scripts/deploy-contracts.sh"

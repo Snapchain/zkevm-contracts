@@ -13,3 +13,4 @@ RUN npm install
 COPY . .
 
 ENTRYPOINT ["/bin/bash"]
+CMD ["./docker/scripts/deploy-contracts.sh"]
