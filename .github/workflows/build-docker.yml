@@ -5,7 +5,7 @@ name: Build-Docker image
 
 on:
   push:
-    # branches: [main]
+    branches: [main]
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -47,6 +47,6 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: snapchain/zkevm-contracts:v0.0.1-dev
+          tags: snapchain/zkevm-contracts:v0.0.1
           file: docker/Dockerfile
           context: .
