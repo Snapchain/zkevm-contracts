@@ -9,9 +9,9 @@
     "forkID": 8,
     "consensusContract": "PolygonValidiumEtrog",
     "dataAvailabilityProtocol": "PolygonDataCommittee",
-    "gasTokenAddress":"",
+    "gasTokenAddress": "",
     "deployerPvtKey": "",
-    "maxFeePerGas":"",
-    "maxPriorityFeePerGas":"",
+    "maxFeePerGas": "",
+    "maxPriorityFeePerGas": "",
     "multiplierGas": ""
 }
