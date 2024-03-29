@@ -22,7 +22,7 @@ services:
       - --http
       - --http.addr=0.0.0.0
       - --dev
-      - --dev.period=13
+      - --dev.period=1
       - --datadir=/geth_data
     depends_on:
       geth-genesis:

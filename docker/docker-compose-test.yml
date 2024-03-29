@@ -2,7 +2,7 @@ version: "3.3"
 services:
   zkevm-mock-l1-network:
     container_name: zkevm-mock-l1-network
-    image: snapchain/geth-cdk-validium-contracts:<tag>
+    image: snapchain/geth-cdk-validium-contracts:v0.0.3
     ports:
       - 8545:8545
       - 8546:8546
@@ -26,7 +26,7 @@ services:
       - "0.0.0.0"
       - "--dev"
       - "--dev.period"
-      - "13"
+      - "1"
       - "--datadir"
       - "/geth_data"
       - "--rpc.allow-unprotected-txs"

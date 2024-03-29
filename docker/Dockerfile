@@ -6,4 +6,4 @@ COPY docker/gethData /
 COPY docker/deploymentOutput /deploymentOutput
 
 ENTRYPOINT ["geth"]
-CMD ["--rpc.allow-unprotected-txs", "--http", "--http.addr", "0.0.0.0","--http.corsdomain", "*", "--http.vhosts" ,"*", "--ws", "--ws.origins", "*", "--ws.addr", "0.0.0.0", "--dev", "--dev.period", "13", "--datadir", "/geth_data"]
+CMD ["--rpc.allow-unprotected-txs", "--http", "--http.addr", "0.0.0.0","--http.corsdomain", "*", "--http.vhosts" ,"*", "--ws", "--ws.origins", "*", "--ws.addr", "0.0.0.0", "--dev", "--dev.period", "1", "--datadir", "/geth_data"]
