@@ -1,21 +1,30 @@
 version: "3.3"
 services:
-    geth:
-        image: ethereum/client-go:v1.12.0
-        environment:
-            - DEV_PERIOD
-        ports:
-            - "8545:8545"
-        volumes:
-            - ./gethData/geth_data:/geth_data
-        entrypoint:
-            - geth
-            - --rpc.allow-unprotected-txs
-            - --http
-            - --http.addr
-            - "0.0.0.0"
-            - --dev
-            - --dev.period
-            - $DEV_PERIOD
-            - --datadir
-            - /geth_data
+  # Sets up the genesis configuration for the go-ethereum client from a JSON file.
+  # This is needed b/c we don't know why terminalTotalDifficultyPassed were not correctly set in the default config.
+  geth-genesis:
+    container_name: geth-genesis
+    image: ethereum/client-go:v1.13.14
+    command: --datadir=/geth_data init /geth-genesis.json
+    volumes:
+      - ./geth-genesis.json:/geth-genesis.json
+      - ./gethData/geth_data:/geth_data
+
+  # Runs the go-ethereum execution client with the specified.
+  geth:
+    container_name: geth-zkevm-contracts
+    image: ethereum/client-go:v1.13.14
+    ports:
+      - 8545:8545
+    volumes:
+      - ./gethData/geth_data:/geth_data
+    command:
+      - --rpc.allow-unprotected-txs
+      - --http
+      - --http.addr=0.0.0.0
+      - --dev
+      - --dev.period=1
+      - --datadir=/geth_data
+    depends_on:
+      geth-genesis:
+        condition: service_completed_successfully

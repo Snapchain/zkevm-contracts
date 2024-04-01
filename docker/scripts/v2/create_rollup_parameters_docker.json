@@ -1,16 +1,17 @@
 {
     "realVerifier": false,
     "trustedSequencerURL": "http://zkevm-json-rpc:8123",
-    "networkName": "zkevm",
+    "networkName": "cdk-validium",
     "description": "0.0.1",
     "trustedSequencer": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
     "chainID": 1001,
     "adminZkEVM": "0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266",
-    "forkID": 8,
-    "consensusContract": "PolygonZkEVMEtrog",
-    "gasTokenAddress":"",
+    "forkID": 9,
+    "consensusContract": "PolygonValidiumEtrog",
+    "dataAvailabilityProtocol": "PolygonDataCommittee",
+    "gasTokenAddress": "",
     "deployerPvtKey": "",
-    "maxFeePerGas":"",
-    "maxPriorityFeePerGas":"",
+    "maxFeePerGas": "",
+    "maxPriorityFeePerGas": "",
     "multiplierGas": ""
 }

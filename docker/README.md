@@ -1,28 +1,56 @@
-# Docker deployment
+## Prerequisites
 
-By default the following mnemonic will be used to deploy the smart contracts `MNEMONIC="test test test test test test test test test test test junk"`.
-Also the first 20 accounts of this mnemonic will be funded with ether.
-The first account of the mnemonic will be the deployer of the smart contracts and therefore the holder of all the MATIC test tokens, which are necessary to pay the `sendBatch` transactions.
-You can change the deployment `mnemonic` creating a `.env` file in the project root with the following variable:
-`MNEMONIC=<YOUR_MENMONIC>`
-
-## Requirements
-
-- node version: 14.x
+- Node.js version: 16.x
 - npm version: 7.x
-- docker
-- docker-compose
 
-## Build dockers
+## Setup
 
-In project root execute:
-
-```
+```bash
 npm i
-npm run docker:contracts
+cp .env.example .env
 ```
 
-A new docker `geth-zkevm-contracts:latest` will be created
-This docker will contain a geth node with the deployed contracts
-The deployment output can be found in: `docker/deploymentOutput/deploy_output.json`
-To run the docker you can use: `docker run -p 8545:8545 geth-zkevm-contracts:latest`
+## Build the mock L1 image with deployed CDK contracts
+
+Run
+
+```bash
+sudo TAG=<tag> npm run docker:build:mock-l1
+```
+
+This will create a new Docker image named `snapchain/geth-cdk-validium-contracts:<tag>`, which includes a Geth node with the deployed contracts. The deployment output can be found at `docker/deploymentOutput/deploy_output.json` and `docker/deploymentOutput/create_rollup_output.json`.
+
+To run the Docker container, use:
+
+```bash
+docker run -p 8545:8545 snapchain/geth-cdk-validium-contracts:<tag>
+```
+
+## Publish Images
+First login with your Docker ID on Docker Hub using access token:
+
+```bash
+docker login -u snapchain
+```
+
+If you don't have the access token, create one at: https://hub.docker.com/settings/security.
+
+Then you can push the images built from previous step:
+
+```bash
+TAG=<tag> npm run docker:push:mock-l1
+```
+
+## Test
+
+Replace the <tag> in the `docker/docker-compose-test.yml` and then run
+
+```bash
+sudo docker compose -f docker/docker-compose-test.yml up
+```
+
+Then run the following command to clean up:
+
+```bash
+sudo docker compose -f docker/docker-compose-test.yml down
+```
