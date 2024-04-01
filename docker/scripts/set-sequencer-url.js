@@ -1,6 +1,12 @@
 /* eslint-disable no-await-in-loop */
 /* eslint-disable no-console */
 
+/*
+* TODO:
+* 1. make these a input param
+* 2. convert this script to a hardhat task
+* 3. create a npm command that will preconfig these params
+*/
 const createRollupOutput = require('../deploymentOutput/create_rollup_output.json');
 const zkEVMContractJson = require('../../compiled-contracts/PolygonZkEVM.json');
 

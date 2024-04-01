@@ -4,6 +4,12 @@
 const ethers = require('ethers');
 require('dotenv').config();
 
+/*
+* TODO:
+* 1. make these a input param
+* 2. convert this script to a hardhat task
+* 3. create a npm command that will preconfig these params
+*/
 const deployOutput = require('../deploymentOutput/create_rollup_output.json');
 const dataCommitteeContractJson = require('../../compiled-contracts/PolygonDataCommittee.json');
 

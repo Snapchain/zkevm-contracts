@@ -27,7 +27,7 @@ async function main() {
     const polTokenContract = new ethers.Contract(polTokenContractAddress, polTokenContractJson.abi, deployer);
     const tx = await polTokenContract.approve(
         zkEVMContractAddress,
-        ethers.utils.parseEther('100.0'),
+        ethers.utils.parseEther('10000000000.0'),
     );
     console.log('Transaction hash:', tx.hash);
     // Wait for receipt

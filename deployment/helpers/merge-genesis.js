@@ -33,7 +33,7 @@ function main() {
     }
 
     // Construct the new JSON structure
-    // Reference: https://github.com/0xPolygon/cdk-validium-node/blob/v0.6.2%2Bcdk-hotfix1/docs/config-file/custom_network-config-doc.md
+    // Reference: https://github.com/0xPolygon/cdk-validium-node/blob/v0.6.4%2Bcdk/docs/config-file/custom_network-config-doc.md
     const newData = {
         l1Config: {
             chainId,
@@ -46,8 +46,6 @@ function main() {
         rollupManagerCreationBlockNumber: configData.deploymentRollupManagerBlockNumber,
         root: genesisData.root,
         genesis: genesisData.genesis,
-        // TODO: check it
-        firstBatchData: configRollupData.firstBatchData,
     };
 
     // Write the new JSON to a file
